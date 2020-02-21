@@ -82,6 +82,10 @@ void terminal_putchar(char c) {
         case '\n':
             terminal_newline();
             break;
+        case '\r':
+            terminal_clear_line(terminal_row);
+            terminal_column = 0;
+            break;
         default:
             terminal_putentryat(uc, terminal_color, terminal_column, terminal_row);
             terminal_column++;
